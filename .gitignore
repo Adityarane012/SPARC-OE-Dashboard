@@ -23,7 +23,11 @@ data/banned_patterns.txt
 data/moderation.csv
 data/audit.md
 
-# Committed instead: build/*.py (the pipeline), the published aggregates
+# build/clean.py does carry the six submission ids from the dedupe ledger. They are
+# opaque form tokens, they name nobody, and they are meaningless without the raw
+# sheet - but they are what documents which duplicate rows were dropped and why.
+#
+# Committed: build/*.py (the pipeline), the published aggregates
 # (oe_public.json, oe_stats.json, cards.json), the name and basket maps, the built
 # index.html and the share cards. Re-run build/clean.py against the raw sheet to
 # regenerate everything ignored above.
@@ -44,3 +48,9 @@ Thumbs.db
 
 # playwright-mcp scratch output (screenshots, snapshots, console logs)
 .playwright-mcp/
+
+# ---------------------------------------------------------------- vercel
+# Added by `vercel link`. .vercel holds the project id; .env.local holds the
+# OIDC token it downloads. Neither belongs in a public repo.
+.vercel
+.env*
