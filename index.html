@@ -85,25 +85,38 @@ h1,h2,h3{margin:0}
 .cta:focus-visible,a:focus-visible,th button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 
 /* ----------------------------------------------------------------- hero */
-.hero{padding:4rem 0 2.75rem}
+.hero{padding:3rem 0 1.75rem}
 .hero h1{font-size:var(--step-4);line-height:1.01;letter-spacing:-.04em;font-weight:800;max-width:14ch}
-.hero p{margin:1.5rem 0 0;max-width:46ch;font-size:var(--step-1);color:var(--ink-2);line-height:1.5}
-@media(max-width:40rem){.hero{padding:2.5rem 0 2rem}.hero p{font-size:var(--step-0)}}
+.hero p{margin:1.25rem 0 0;max-width:46ch;font-size:var(--step-1);color:var(--ink-2);line-height:1.5}
+@media(max-width:40rem){.hero{padding:2.25rem 0 1.5rem}.hero p{font-size:var(--step-0)}}
+/* A laptop screen is wide but short. At 1280x720 the hero filled the whole first
+   screen and a reader arriving from a link saw a headline and a disclaimer, no
+   course and no number. On a short viewport the display size and the gaps come
+   down so the first verdict is above the fold. */
+@media(min-width:41rem) and (max-height:53rem){
+  :root{--step-4:clamp(2.5rem,5vw,3.375rem)}
+  .hero{padding:2rem 0 1.25rem}
+  .hero p{margin-top:1rem}
+  .caveat{padding:.75rem 0 1.25rem}
+  .basket-head{padding-top:1.5rem}
+  .picks{margin-top:1rem}
+  .pick{padding:1.5rem 0}
+}
 
-.caveat{padding:1.25rem 0 2.5rem;font-size:var(--step--1);color:var(--ink-3);max-width:70ch}
+.caveat{padding:1rem 0 1.75rem;font-size:var(--step--1);color:var(--ink-3);max-width:70ch}
 
 /* ----------------------------------------------------------------- baskets */
 /* You take one course from each basket, so the page is two parallel answers
    rather than one league table spanning both. */
 .basket{padding-bottom:1rem}
-.basket-head{padding:2.5rem 0 .5rem;border-top:2px solid var(--ink)}
+.basket-head{padding:2rem 0 .5rem;border-top:2px solid var(--ink)}
 .basket-head h2{font-size:var(--step-3);font-weight:800;letter-spacing:-.035em;line-height:1}
 .basket-head p{margin:.625rem 0 0;font-size:var(--step-0);color:var(--ink-2);max-width:58ch}
 
 /* ------------------------------------------------------------ the picks */
 /* A shortlist, read top to bottom: what we are calling it, the figure that
    earns it, then the course and one student's advice. */
-.picks{margin:1.75rem 0 0;padding:0;list-style:none}
+.picks{margin:1.25rem 0 0;padding:0;list-style:none}
 .pick{
   display:grid;grid-template-columns:minmax(10rem,13rem) minmax(0,1fr);
   column-gap:3rem;padding:1.875rem 0;border-top:1px solid var(--rule);
