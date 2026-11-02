@@ -1,0 +1,17 @@
+# Copy this to banned_patterns.txt and fill in the real values.
+#
+# One Python regex per line. Blank lines and # comments are ignored.
+# Matching is case-insensitive, against the built HTML and every published tip.
+#
+# The real file is git-ignored because it has to name the people you are
+# checking for, and a public list of faculty surnames under the heading
+# "banned" causes exactly the harm the moderation pass is there to prevent.
+#
+# Put one entry here for every:
+#   - swear word or slur that appears in the raw responses
+#   - surname, first name or nickname of any member of staff a reviewer named
+#   - brand or product a reviewer promoted
+#
+# Example shape (replace with your own):
+# \bsomesurname\b
+# some-swear-word

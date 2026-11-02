@@ -1,0 +1,8 @@
+# Only the page and its share cards get served. The pipeline, the internal data
+# and the card render sheet are in the repo to show the work, not to be hosted.
+build/
+data/
+Docs/
+cards.html
+.playwright-mcp/
+*.py

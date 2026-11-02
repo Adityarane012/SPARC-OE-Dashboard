@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OE Insights: which Open Elective should you take?</title>
+<meta name="description" content="__META_DESC__">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23171a2e'/%3E%3Crect x='7' y='18' width='4' height='7' fill='%23fff'/%3E%3Crect x='14' y='12' width='4' height='13' fill='%23fff'/%3E%3Crect x='21' y='7' width='4' height='18' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+/* ----------------------------------------------------------------- tokens
+   Cool blue-grey paper with white panels, keyed off the navy in the SPARC
+   mark. The accent hue appears only inside data bars, never on text, borders
+   or backgrounds. Swap --brand-* and --bar for a different palette; nothing
+   else needs to change. */
+:root{
+  --paper:#f2f3f7;
+  --surface:#ffffff;
+  --ink:#171a2e;
+  --ink-2:#4d5168;
+  --ink-3:#63677f;
+  --rule:#dde0ea;
+  --rule-strong:#b9bdd0;
+
+  /* validated: single hue, clears 3:1 against the surface */
+  --bar:#1c5cab;
+  --bar-track:#dfe2ed;
+
+  --brand-ink:var(--ink);        /* SPARC wordmark colour */
+  --brand-cta-bg:var(--ink);     /* join button */
+  --brand-cta-ink:#ffffff;
+
+  /* The measure is deliberately narrower than the old 70rem and every step is
+     up roughly one notch: at 1440px and above the page was reading small, with
+     16px body text stranded in a lot of empty paper. */
+  --measure:64rem;
+  --step--1:0.875rem;
+  --step-0:1.0625rem;
+  --step-1:1.3125rem;
+  --step-2:1.875rem;
+  --step-3:2.625rem;
+  --step-4:clamp(2.875rem,7.5vw,4.75rem);
+  --figure:clamp(2.75rem,6vw,4rem);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:var(--step-0);line-height:1.55;
+  font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 1.5rem}
+@media(max-width:40rem){.wrap{padding:0 1.125rem}}
+h1,h2,h3{margin:0}
+
+/* ----------------------------------------------------------------- header */
+.masthead{position:sticky;top:0;z-index:10;background:var(--paper);border-bottom:1px solid var(--rule)}
+.masthead .wrap{display:flex;align-items:center;gap:1rem;height:4.25rem}
+.wordmark{display:flex;align-items:center;gap:.6rem;color:var(--brand-ink)}
+.wordmark img{height:2.6rem;width:auto;display:block}
+.wordmark b{font-size:var(--step-1);font-weight:700;letter-spacing:-.02em}
+.wordmark span{font-size:var(--step--1);color:var(--ink-3)}
+/* Tells you which basket you are in once the heading has scrolled away. */
+.where{
+  margin-left:auto;margin-right:1rem;font-size:var(--step--1);font-weight:600;color:var(--ink-2);
+  opacity:0;transform:translateY(.25rem);transition:opacity .25s ease,transform .25s ease;
+}
+.where.on{opacity:1;transform:none}
+@media(max-width:34rem){.where{display:none}}
+.cta{
+  display:inline-block;background:var(--brand-cta-bg);color:var(--brand-cta-ink);
+  text-decoration:none;font-size:var(--step--1);font-weight:600;
+  padding:.5rem .95rem;border:1px solid var(--brand-cta-bg);border-radius:2px;
+}
+.masthead .cta{margin-left:auto}
+/* .where carries its own margin-left:auto, so the two sit together on the right. */
+.masthead .where + .cta{margin-left:0}
+/* display:none does not stop .where matching that sibling rule, so once the
+   label is hidden the button has to be told again to sit right. This has to
+   come after the rule it overrides: the two selectors have equal specificity. */
+@media(max-width:34rem){.masthead .where + .cta{margin-left:auto}}
+.cta:hover{opacity:.88}
+.cta:focus-visible,a:focus-visible,th button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* ----------------------------------------------------------------- hero */
+.hero{padding:4rem 0 2.75rem}
+.hero h1{font-size:var(--step-4);line-height:1.01;letter-spacing:-.04em;font-weight:800;max-width:14ch}
+.hero p{margin:1.5rem 0 0;max-width:46ch;font-size:var(--step-1);color:var(--ink-2);line-height:1.5}
+@media(max-width:40rem){.hero{padding:2.5rem 0 2rem}.hero p{font-size:var(--step-0)}}
+
+.caveat{padding:1.25rem 0 2.5rem;font-size:var(--step--1);color:var(--ink-3);max-width:70ch}
+
+/* ----------------------------------------------------------------- baskets */
+/* You take one course from each basket, so the page is two parallel answers
+   rather than one league table spanning both. */
+.basket{padding-bottom:1rem}
+.basket-head{padding:2.5rem 0 .5rem;border-top:2px solid var(--ink)}
+.basket-head h2{font-size:var(--step-3);font-weight:800;letter-spacing:-.035em;line-height:1}
+.basket-head p{margin:.625rem 0 0;font-size:var(--step-0);color:var(--ink-2);max-width:58ch}
+
+/* ------------------------------------------------------------ the picks */
+/* A shortlist, read top to bottom: what we are calling it, the figure that
+   earns it, then the course and one student's advice. */
+.picks{margin:1.75rem 0 0;padding:0;list-style:none}
+.pick{
+  display:grid;grid-template-columns:minmax(10rem,13rem) minmax(0,1fr);
+  column-gap:3rem;padding:1.875rem 0;border-top:1px solid var(--rule);
+}
+.pick:first-child{border-top:0}
+.pick-kind{
+  grid-column:1;margin:0 0 .5rem;font-size:var(--step--1);font-weight:700;
+  color:var(--bar);letter-spacing:.005em;
+}
+.pick-figure{grid-column:1;align-self:start}
+.pick-stat{
+  display:block;font-size:var(--figure);font-weight:800;letter-spacing:-.055em;
+  line-height:.95;white-space:nowrap;
+}
+.pick-stat-label{display:block;margin-top:.375rem;font-size:var(--step-0);font-weight:600;line-height:1.25;color:var(--ink-2)}
+.pick-body{grid-column:2;grid-row:1 / span 2;align-self:start}
+.pick-oe{font-size:var(--step-2);font-weight:700;letter-spacing:-.025em;line-height:1.15}
+.pick-sub{margin:.5rem 0 0;font-size:var(--step--1);color:var(--ink-3)}
+.pick-tip{
+  margin:1rem 0 0;padding-left:1rem;border-left:2px solid var(--rule-strong);
+  font-size:var(--step-0);line-height:1.5;color:var(--ink-2);max-width:58ch;
+}
+.pick-tip.none{color:var(--ink-3);font-style:italic}
+@media(max-width:46rem){
+  .pick{grid-template-columns:1fr;column-gap:0}
+  .pick-kind,.pick-figure,.pick-body{grid-column:1}
+  .pick-body{grid-row:auto;margin-top:1.125rem}
+}
+
+/* ----------------------------------------------------------------- tables */
+.table-head{margin:2.75rem 0 .25rem;font-size:var(--step-1);font-weight:700;letter-spacing:-.02em}
+.note{margin:.375rem 0 1.25rem;font-size:var(--step--1);color:var(--ink-2);max-width:64ch}
+.panel{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:.25rem 1.25rem}
+table{width:100%;border-collapse:collapse;font-size:var(--step--1)}
+caption{text-align:left;caption-side:top;font-size:var(--step--1);color:var(--ink-3);padding:.875rem 0 .5rem}
+th,td{text-align:left;padding:.8125rem .75rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th:first-child,td:first-child{padding-left:0}
+th:last-child,td:last-child{padding-right:0}
+tbody tr:last-child td{border-bottom:0}
+thead th{
+  border-bottom:1px solid var(--rule-strong);font-size:var(--step--1);font-weight:600;
+  color:var(--ink-3);white-space:nowrap;padding-top:.5rem;
+}
+thead th button{
+  all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.3rem;
+  font:inherit;color:inherit;
+}
+thead th button::after{content:"\2195";opacity:.4;font-size:.9em}
+thead th[aria-sort="descending"] button::after{content:"\2193";opacity:1}
+thead th[aria-sort="ascending"] button::after{content:"\2191";opacity:1}
+thead th[aria-sort] button{color:var(--ink)}
+tbody tr:hover{background:var(--paper)}
+.oe-name{font-size:var(--step-0);font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.flag{display:block;margin-top:.1875rem;font-size:.6875rem;color:var(--ink-3)}
+.num{font-weight:600;color:var(--ink);white-space:nowrap}
+.n-cell{font-weight:600;color:var(--ink);white-space:nowrap}
+.tip-cell{color:var(--ink-2);line-height:1.5;min-width:17rem}
+.tip-cell.none{color:var(--ink-3);font-style:italic}
+
+/* the only mark on the page: a proportion bar, 6px, square-ended track */
+.meter{display:flex;align-items:center;gap:.5rem;min-width:9rem}
+.meter .track{position:relative;flex:1;height:6px;background:var(--bar-track);min-width:3.5rem;border-radius:1px}
+.meter .fill{position:absolute;inset:0 auto 0 0;background:var(--bar);border-radius:1px}
+.breakdown{display:block;margin-top:.3125rem;font-size:.6875rem;color:var(--ink-3)}
+@media(min-width:48rem){
+  .breakdown{position:absolute;width:1px;height:1px;margin:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+/* The one piece of motion on the page: a bar draws itself to its real value
+   the first time you reach it, so the number arrives as a measurement being
+   taken. The starting width is set inline by the script, because an inline
+   width would otherwise outrank anything declared here. */
+.anim .meter .fill{transition:width .75s cubic-bezier(.22,.8,.3,1)}
+@media(prefers-reduced-motion:reduce){
+  .anim .meter .fill{transition:none}
+}
+
+/* stacked rows on narrow screens: the table stops being a table */
+@media(max-width:48rem){
+  .panel{padding:.25rem 1rem}
+  thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  table,tbody,tr,td{display:block;width:100%}
+  caption{display:block;width:100%}
+  tr{border-bottom:1px solid var(--rule);padding:1rem 0}
+  td{border:0;padding:.1875rem 0}
+  td[data-label]::before{
+    content:attr(data-label);display:block;font-size:.6875rem;color:var(--ink-3);
+    font-weight:600;margin-bottom:.25rem;
+  }
+  td.c-oe{padding-bottom:.625rem}
+  td.c-oe::before{display:none}
+  td.c-ica,td.c-again{padding-top:.5rem}
+  .tip-cell{min-width:0;padding-top:.625rem}
+}
+
+/* ----------------------------------------------------------------- footer */
+.method{padding:3rem 0;margin-top:3rem;border-top:2px solid var(--ink);font-size:var(--step--1);color:var(--ink-2)}
+.method h3{margin-bottom:1.25rem;font-size:var(--step-1);color:var(--ink);font-weight:700;letter-spacing:-.02em}
+.method dl{display:grid;grid-template-columns:minmax(9rem,11rem) minmax(0,1fr);gap:.875rem 2rem;margin:0;max-width:64rem}
+.method dt{font-weight:600;color:var(--ink)}
+.method dd{margin:0;max-width:62ch}
+@media(max-width:40rem){
+  .method dl{grid-template-columns:1fr;gap:.25rem}
+  .method dd{margin-bottom:.875rem}
+}
+/* The sign-off and the colophon are one dark block. Split across two
+   backgrounds the pale strip underneath read as leftover page. */
+.join{background:var(--ink);color:var(--surface)}
+.join .wrap{padding:3.5rem 1.5rem 2.25rem}
+.join-row{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.join-row p{margin:0;max-width:40ch;font-size:var(--step-2);line-height:1.25;letter-spacing:-.025em;font-weight:700}
+.join .cta{background:var(--surface);color:var(--ink);border-color:var(--surface);font-size:var(--step-0);padding:.75rem 1.375rem}
+.join .cta:focus-visible{outline-color:var(--surface)}
+.colophon{
+  margin:2.75rem 0 0;padding-top:1.5rem;border-top:1px solid #2e324c;
+  font-size:var(--step--1);color:#9ea4c4;
+}
+@media(max-width:40rem){.join .wrap{padding:2.5rem 1.125rem 2rem}.colophon{margin-top:2rem}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media print{.cta,.join,.where{display:none}}
+</style>
+</head>
+<body id="top">
+
+<header class="masthead">
+  <div class="wrap">
+    <!-- Not a link. It labels the page you are already on, and as an anchor it
+         picked up link styling and invited a click that went nowhere useful. -->
+    <span class="wordmark">__WORDMARK__<span>OE Insights</span></span>
+    <span class="where" id="where" aria-hidden="true"></span>
+    <a class="cta" href="__CTA_URL__">__CTA_LABEL__</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>Which OE should you take?</h1>
+      <p id="hero-sub"></p>
+    </div>
+  </section>
+
+  <div class="wrap"><p class="caveat" id="caveat"></p></div>
+
+  <div id="baskets"></div>
+
+  <section class="method">
+    <div class="wrap">
+      <h3>What the numbers mean</h3>
+      <dl id="method"></dl>
+    </div>
+  </section>
+</main>
+
+<footer class="join">
+  <div class="wrap">
+    <div class="join-row">
+      <p id="join-line"></p>
+      <a class="cta" href="__CTA_URL__">__CTA_LABEL__</a>
+    </div>
+    <p class="colophon" id="colophon"></p>
+  </div>
+</footer>
+
+<script id="payload" type="application/json">__DATA__</script>
+<script>
+(function(){
+  "use strict";
+  var D = JSON.parse(document.getElementById("payload").textContent);
+  var oes = D.oes, meta = D.meta, cards = D.cards;
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if(cls) n.className = cls;
+    if(text != null) n.textContent = text;
+    return n;
+  }
+  function pct(v){ return v == null ? "—" : Math.round(v) + "%"; }
+  function plural(n, one, many){ return n + " " + (n === 1 ? one : many); }
+
+  /* Decided once, before any bar is built: a bar starts at zero only if we are
+     actually going to animate it. Everything here is script-built, so there is
+     no no-JS state to protect. */
+  var ANIM = "IntersectionObserver" in window
+    && !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+
+  /* ------------------------------------------------------------- top copy */
+  document.getElementById("hero-sub").textContent =
+    "We asked " + meta.respondents + " students what their electives were actually like. "
+    + "All " + meta.reviews + " reviews are here, course by course.";
+  document.getElementById("caveat").textContent = meta.caveat_line;
+  document.getElementById("join-line").textContent =
+    "We're SPARC, the automation and research club. We build things like this.";
+  document.getElementById("colophon").textContent =
+    "Built by SPARC from " + meta.reviews + " student reviews, October 2026.";
+
+  /* ------------------------------------------------------------- the picks */
+  function pickNode(c){
+    var li = el("li", "pick");
+    li.appendChild(el("p", "pick-kind", c.label));
+
+    var fig = el("div", "pick-figure");
+    fig.appendChild(el("span", "pick-stat", c.stat_value));
+    fig.appendChild(el("span", "pick-stat-label", c.stat_label));
+    li.appendChild(fig);
+
+    var body = el("div", "pick-body");
+    body.appendChild(el("h3", "pick-oe", c.oe));
+    body.appendChild(el("p", "pick-sub",
+      c.sub + ". From " + plural(c.n, "review", "reviews") + "."));
+    body.appendChild(c.tip ? el("p", "pick-tip", c.tip)
+                           : el("p", "pick-tip none", "Nobody left a tip for this one."));
+    li.appendChild(body);
+    return li;
+  }
+
+  /* ------------------------------------------------------------- meters */
+  function bandText(o){
+    var b = o.band_counts || {};
+    return (b["Above 45"] || 0) + " expect 45+, "
+         + (b["41-45"] || 0) + " expect 41 to 45, "
+         + (b["35-40"] || 0) + " expect 35 to 40, "
+         + (b["Below 35"] || 0) + " expect under 35";
+  }
+  function againText(o){
+    return o.yes + " yes, " + o.maybe + " maybe, " + o.no + " no";
+  }
+  function meter(value, label, detail){
+    var wrap = document.createElement("div");
+    var m = el("div", "meter");
+    var track = el("div", "track");
+    var fill = el("div", "fill");
+    var target = (value == null ? 0 : value) + "%";
+    fill.setAttribute("data-w", target);
+    fill.style.width = ANIM ? "0%" : target;
+    track.appendChild(fill);
+    m.appendChild(track);
+    m.appendChild(el("span", "num", pct(value)));
+    m.title = label + ": " + detail;
+    wrap.appendChild(m);
+    wrap.appendChild(el("span", "breakdown", detail));
+    return wrap;
+  }
+
+  /* ------------------------------------------------------------- tables */
+  function row(o){
+    var tr = document.createElement("tr");
+
+    var tdName = el("td", "c-oe");
+    tdName.appendChild(el("span", "oe-name", o.name));
+    if(o.needs_confirm){
+      tdName.appendChild(el("span", "flag", "full course name not confirmed yet"));
+    }
+    tr.appendChild(tdName);
+
+    var tdIca = el("td", "c-ica");
+    tdIca.setAttribute("data-label", "Expecting 41+");
+    tdIca.appendChild(meter(o.pct_41_plus, "Expecting 41+", bandText(o)));
+    tr.appendChild(tdIca);
+
+    var tdAgain = el("td", "c-again");
+    tdAgain.setAttribute("data-label", "Would take again");
+    tdAgain.appendChild(meter(o.pct_yes, "Would take again", againText(o)));
+    tr.appendChild(tdAgain);
+
+    var tdN = el("td", "n-cell");
+    tdN.setAttribute("data-label", "Reviews");
+    tdN.textContent = o.n;
+    tr.appendChild(tdN);
+
+    var tdTip = el("td", "tip-cell" + (o.display_tip ? "" : " none"));
+    tdTip.setAttribute("data-label", "One tip");
+    tdTip.textContent = o.display_tip || "No tip for this one.";
+    tr.appendChild(tdTip);
+
+    return tr;
+  }
+
+  function buildTable(){
+    var table = el("table");
+    table.appendChild(el("caption"));
+    var tr = el("tr");
+    [["name", "Course"], ["pct_41_plus", "Expecting 41+"],
+     ["pct_yes", "Would take again"], ["n", "Reviews"]].forEach(function(col){
+      var th = el("th"); th.setAttribute("scope", "col");
+      var b = el("button", null, col[1]);
+      b.type = "button"; b.setAttribute("data-sort", col[0]);
+      th.appendChild(b); tr.appendChild(th);
+    });
+    var last = el("th", null, "One tip"); last.setAttribute("scope", "col"); tr.appendChild(last);
+    var thead = el("thead"); thead.appendChild(tr);
+    table.appendChild(thead);
+    table.appendChild(el("tbody"));
+    return table;
+  }
+
+  function mount(table, rows, caption){
+    var body = table.querySelector("tbody");
+    var state = { key: "n", dir: -1 };
+
+    function draw(){
+      var sorted = rows.slice().sort(function(a, b){
+        var x = a[state.key], y = b[state.key];
+        if(state.key === "name") return state.dir * String(x).localeCompare(String(y));
+        if(x == null) x = -1;
+        if(y == null) y = -1;
+        if(x === y) return b.n - a.n || String(a.name).localeCompare(String(b.name));
+        return state.dir * (x - y);
+      });
+      body.textContent = "";
+      sorted.forEach(function(o){ body.appendChild(row(o)); });
+      table.querySelectorAll("thead th").forEach(function(th){
+        var btn = th.querySelector("button");
+        if(!btn) return;
+        if(btn.getAttribute("data-sort") === state.key){
+          th.setAttribute("aria-sort", state.dir === -1 ? "descending" : "ascending");
+        }else{
+          th.removeAttribute("aria-sort");
+        }
+      });
+      if(window.__watchMeters) window.__watchMeters(body);
+    }
+
+    table.querySelectorAll("thead button").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        var k = btn.getAttribute("data-sort");
+        if(state.key === k){ state.dir = -state.dir; }
+        else { state.key = k; state.dir = (k === "name") ? 1 : -1; }
+        draw();
+      });
+    });
+
+    table.querySelector("caption").textContent = caption;
+    draw();
+    return table;
+  }
+
+  /* ------------------------------------------------------------- baskets */
+  var host = document.getElementById("baskets");
+  var sections = [];
+
+  ["OE-I", "OE-II"].forEach(function(key){
+    var mine = oes.filter(function(o){ return o.basket === key; });
+    if(!mine.length) return;
+    var myPicks = cards.filter(function(c){ return c.basket === key; });
+    var strong  = mine.filter(function(o){ return o.n >= 4; });
+    var thin    = mine.filter(function(o){ return o.n < 4; });
+    var reviews = mine.reduce(function(a, o){ return a + o.n; }, 0);
+
+    var sec = el("section", "basket");
+    sec.id = key.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+    sec.setAttribute("data-basket", key);
+
+    var head = el("div", "wrap");
+    var hd = el("div", "basket-head");
+    hd.appendChild(el("h2", null, key));
+    hd.appendChild(el("p", null, "You take one course from this basket. "
+      + plural(reviews, "review", "reviews") + " across "
+      + plural(mine.length, "course", "courses") + "."));
+    head.appendChild(hd);
+    sec.appendChild(head);
+
+    if(myPicks.length){
+      var list = el("ul", "picks");
+      myPicks.forEach(function(c){ list.appendChild(pickNode(c)); });
+      var pw = el("div", "wrap");
+      pw.appendChild(list);
+      sec.appendChild(pw);
+    }
+
+    var tw = el("div", "wrap");
+    if(strong.length){
+      tw.appendChild(el("h3", "table-head",
+        plural(strong.length, "course", "courses") + " with four or more reviews"));
+      var p1 = el("div", "panel");
+      p1.appendChild(mount(buildTable(), strong, "Sorted by review count. Sort by any heading."));
+      tw.appendChild(p1);
+    }
+    if(thin.length){
+      tw.appendChild(el("h3", "table-head",
+        plural(thin.length, "course", "courses") + " with only one or two reviews"));
+      tw.appendChild(el("p", "note", "One or two people is too few to call anything, so these stay out of the picks above. The numbers are here if you want them."));
+      var p2 = el("div", "panel");
+      p2.appendChild(mount(buildTable(), thin, "Sorted by review count. Sort by any heading."));
+      tw.appendChild(p2);
+    }
+    sec.appendChild(tw);
+    host.appendChild(sec);
+    sections.push(sec);
+  });
+
+  /* ------------------------------------------------------------- method */
+  var terms = [
+    ["Expecting 41+", "The share of reviewers who said they expect 41 or more out of 50 in the ICA. We don't average the grade bands, because that would invent a number nobody gave us."],
+    ["Would take again", "The share who answered yes. Maybe and no both count as not-yes."],
+    ["Reviews", "How many people reviewed that course. Four is the cut-off for the picks at the top of each basket."],
+    ["Tips", "Students' own words, edited for clarity. Nothing naming a professor is published, and complaints about a person rather than the course were left out."],
+    ["Workload", "We asked about it on a 1 to 5 scale, but people read the scale in opposite directions. Some meant heavy, some meant great, so it tells you nothing and we left it out."]
+  ];
+  var dl = document.getElementById("method");
+  terms.forEach(function(t){
+    dl.appendChild(el("dt", null, t[0]));
+    dl.appendChild(el("dd", null, t[1]));
+  });
+
+  /* ------------------------------------------------------------- motion */
+  /* Bars draw to their real value the first time they come into view. The
+     page ships with every bar already at full width, so if this script never
+     runs, or the browser asks for reduced motion, nothing is hidden. */
+  if(ANIM){
+    document.body.classList.add("anim");
+
+    var meterObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        meterObserver.unobserve(entry.target);
+        var fills = entry.target.querySelectorAll(".fill");
+        for(var i = 0; i < fills.length; i++){
+          (function(f, delay){
+            setTimeout(function(){ f.style.width = f.getAttribute("data-w"); }, delay);
+          })(fills[i], i * 70);
+        }
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.1 });
+
+    window.__watchMeters = function(scope){
+      scope.querySelectorAll("tr").forEach(function(tr){ meterObserver.observe(tr); });
+    };
+    document.querySelectorAll("tbody").forEach(function(b){ window.__watchMeters(b); });
+  }
+
+  /* Which basket you are in, once its heading has scrolled past. */
+  var where = document.getElementById("where");
+  if(where && "IntersectionObserver" in window && sections.length){
+    /* Track what is in view rather than what was last seen: remembering only the
+       most recent hit leaves the label claiming a basket long after you have
+       scrolled past both of them. */
+    var inView = [];
+    var sectionObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var i = inView.indexOf(e.target);
+        if(e.isIntersecting){ if(i === -1) inView.push(e.target); }
+        else if(i !== -1){ inView.splice(i, 1); }
+      });
+      var first = null;
+      for(var s = 0; s < sections.length; s++){
+        if(inView.indexOf(sections[s]) !== -1){ first = sections[s]; break; }
+      }
+      if(first){
+        where.textContent = "Reading " + first.getAttribute("data-basket");
+        where.classList.add("on");
+      }else{
+        where.classList.remove("on");
+      }
+    }, { rootMargin: "-25% 0px -55% 0px" });
+    sections.forEach(function(s){ sectionObserver.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>

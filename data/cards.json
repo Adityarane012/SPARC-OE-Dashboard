@@ -1,0 +1,104 @@
+{
+  "meta": {
+    "gate": "N>=4 reviews and a confirmed course name",
+    "eligible_oes": 9,
+    "eligible_oe1": 7,
+    "eligible_oe2": 2,
+    "selection_note": "Cards are picked within a basket, not across both: a student chooses one OE-I and one OE-II, so a cross-basket ranking would answer a question nobody is asking.",
+    "phrasing_note": "Cards state counts, not percentages: at N=4 a percentage overclaims.",
+    "caveat_line": "79 reviews from 48 students, collected in October 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity."
+  },
+  "cards": [
+    {
+      "basket": "OE-I",
+      "slot": "crowd_favourite",
+      "label": "Most liked",
+      "oe": "Basic Decision Making with Spreadsheets",
+      "stat_value": "4 of 4",
+      "stat_label": "would take it again",
+      "stat": "4 of 4 would take it again",
+      "sub": "4 of 4 expect 41+ marks",
+      "n": 4,
+      "tip": "Good if you study even a little. If you study nothing you won't score. Completely lab based.",
+      "why": "Highest would-take-again share in this basket among OEs with enough reviews."
+    },
+    {
+      "basket": "OE-I",
+      "slot": "easiest_to_score",
+      "label": "Best marks",
+      "oe": "5G for Everyone",
+      "stat_value": "3 of 4",
+      "stat_label": "expect 45+ marks",
+      "stat": "3 of 4 expect 45+ marks",
+      "sub": "3 of 4 would take it again",
+      "n": 4,
+      "tip": "Lectures run about an hour, labs are easy and you leave once you're done, and the PPT is genuinely useful.",
+      "why": "Largest share of reviewers expecting the top ICA band (Above 45) in this basket."
+    },
+    {
+      "basket": "OE-I",
+      "slot": "hidden_gem",
+      "label": "Worth a look",
+      "oe": "Drone Technology",
+      "stat_value": "3 of 4",
+      "stat_label": "would take it again",
+      "stat": "3 of 4 would take it again",
+      "sub": "4 of 4 expect 41+ marks",
+      "n": 4,
+      "tip": "Attendance is very lenient, but submit everything else on time.",
+      "why": "Well liked but among the least-reviewed OEs in this basket that still clear the gate."
+    },
+    {
+      "basket": "OE-I",
+      "slot": "most_mixed",
+      "label": "Mixed reviews",
+      "oe": "Renewable Energy Sources",
+      "stat_value": "1 of 6",
+      "stat_label": "would take it again",
+      "stat": "1 of 6 would take it again",
+      "sub": "5 of 6 expect 41+ marks",
+      "n": 6,
+      "tip": "Stay on good terms with the mechanical faculty.",
+      "why": "Lowest would-take-again share in this basket among OEs with enough reviews."
+    },
+    {
+      "basket": "OE-II",
+      "slot": "crowd_favourite",
+      "label": "Most liked",
+      "oe": "Financial Derivatives",
+      "stat_value": "7 of 7",
+      "stat_label": "would take it again",
+      "stat": "7 of 7 would take it again",
+      "sub": "5 of 7 expect 41+ marks",
+      "n": 7,
+      "tip": "Pay attention in class. It's almost entirely numericals with minimal theory, and the maths is basic with some logic.",
+      "why": "Highest would-take-again share in this basket among OEs with enough reviews."
+    },
+    {
+      "basket": "OE-II",
+      "slot": "most_mixed",
+      "label": "Mixed reviews",
+      "oe": "Elements of Project Management",
+      "stat_value": "2 of 4",
+      "stat_label": "would take it again",
+      "stat": "2 of 4 would take it again",
+      "sub": "2 of 4 expect 41+ marks",
+      "n": 4,
+      "tip": "No attendance issues at all through the semester.",
+      "why": "Lowest would-take-again share in this basket among OEs with enough reviews."
+    }
+  ],
+  "slots_not_filled": [
+    {
+      "basket": "OE-II",
+      "slot": "easiest_to_score",
+      "reason": "best candidate Elements of Project Management does not support the claim"
+    },
+    {
+      "basket": "OE-II",
+      "slot": "hidden_gem",
+      "reason": "best candidate Elements of Project Management does not support the claim"
+    }
+  ],
+  "blocked": []
+}

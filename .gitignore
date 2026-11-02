@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------- personal data
+# The raw export and anything derived from it that still carries free text or
+# respondent IDs stays out of git. It contains a named professor, profanity, and
+# per-respondent identifiers. This repo may become public when the page ships.
+#
+# The whole Docs/ folder is internal: it holds the raw export, and PROJECT.md section 5
+# quotes the profanity from a review verbatim as evidence of the moderation problem.
+# Correct in a planning doc, wrong in a repo that may go public. Delete this line if you
+# decide the repo stays private and you want the spec versioned.
+Docs/
+data/reviews.csv
+data/moderation_review.md
+
+# The banned-pattern list names the faculty it checks for. Holding the name is the
+# only way to prove the name never ships, but a public file listing surnames under
+# the heading "banned" is the harm the moderation pass exists to prevent. Clone and
+# copy banned_patterns.example.txt over it to run the pipeline yourself.
+data/banned_patterns.txt
+
+# Internal audit artifacts. Both key on per-respondent submission ids, and the
+# moderation sheet carries the free text decisions. They are what the team signs
+# off against; they are not part of what gets published.
+data/moderation.csv
+data/audit.md
+
+# Committed instead: build/*.py (the pipeline), the published aggregates
+# (oe_public.json, oe_stats.json, cards.json), the name and basket maps, the built
+# index.html and the share cards. Re-run build/clean.py against the raw sheet to
+# regenerate everything ignored above.
+
+# ---------------------------------------------------------------- tooling noise
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+*.log
+
+# ---------------------------------------------------------------- editor
+.vscode/
+.idea/
+*.swp
+
+# playwright-mcp scratch output (screenshots, snapshots, console logs)
+.playwright-mcp/

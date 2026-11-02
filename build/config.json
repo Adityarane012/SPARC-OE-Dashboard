@@ -1,0 +1,15 @@
+{
+  "_comment": "SPARC branding and the join CTA. Edit this, re-run build/build_page.py, done. build/verify.py fails while cta_url is still empty, so the page cannot ship with a dead Join button.",
+
+  "cta_url": "https://tally.so/r/peeeQZ",
+  "cta_label": "Join SPARC",
+
+  "wordmark_text": "SPARC",
+  "logo_path": "assets/sparc-logo.png",
+
+  "_brand_comment": "Colours sampled from assets/sparc-logo.png, not guessed: navy #151049, pink #ee0451. accent_bar is the only colour on the page and appears only inside data bars; it must clear 3:1 against #fcfcfb. It is a lighter step of the logo navy (same hue, 245) so bars read as accent rather than ink. The logo pink is NOT used as a second data colour - it fails 4.5:1 as text (4.29:1) and red on a would-take-again bar reads as a verdict the data has not made.",
+  "accent_bar": "#4941aa",
+  "brand_ink": "#151049",
+  "cta_bg": "#151049",
+  "cta_ink": "#ffffff"
+}
