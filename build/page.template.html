@@ -88,6 +88,9 @@ h1,h2,h3{margin:0}
 .hero{padding:3rem 0 1.75rem}
 .hero h1{font-size:var(--step-4);line-height:1.01;letter-spacing:-.04em;font-weight:800;max-width:14ch}
 .hero p{margin:1.25rem 0 0;max-width:46ch;font-size:var(--step-1);color:var(--ink-2);line-height:1.5}
+/* Who made this, said at the top rather than only in the footer. Wider measure
+   and a smaller step so it costs two lines, not four. */
+.hero .by{margin-top:1rem;max-width:62ch;font-size:var(--step--1);color:var(--ink-3);line-height:1.5}
 @media(max-width:40rem){.hero{padding:2.25rem 0 1.5rem}.hero p{font-size:var(--step-0)}}
 /* A laptop screen is wide but short. At 1280x720 the hero filled the whole first
    screen and a reader arriving from a link saw a headline and a disclaimer, no
@@ -244,8 +247,12 @@ tbody tr:hover{background:var(--paper)}
    backgrounds the pale strip underneath read as leftover page. */
 .join{background:var(--ink);color:var(--surface)}
 .join .wrap{padding:2.25rem 1.5rem 1.5rem}
-.join-row{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-.join-row p{margin:0;max-width:44ch;font-size:var(--step-1);line-height:1.3;letter-spacing:-.02em;font-weight:700}
+.join-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem 3rem;flex-wrap:wrap}
+.about{flex:0 1 40rem;max-width:40rem}
+.about h2{font-size:var(--step-1);line-height:1.2;letter-spacing:-.025em;font-weight:700;color:var(--surface)}
+.about p{margin:.75rem 0 0;font-size:var(--step-0);font-weight:400;line-height:1.55;letter-spacing:0;color:#c3c7da}
+.about p.open{margin-top:1rem;color:var(--surface);font-weight:600}
+.join-row > .cta{flex:none}
 .join .cta{background:var(--surface);color:var(--ink);border-color:var(--surface);font-size:var(--step--1);padding:.625rem 1.125rem}
 .join .cta:focus-visible{outline-color:var(--surface)}
 .colophon{
@@ -284,6 +291,7 @@ tbody tr:hover{background:var(--paper)}
     <div class="wrap">
       <h1>Which OE should you take?</h1>
       <p id="hero-sub"></p>
+      <p class="by">Built by SPARC, the Smart Process Automation and Research Club at MPSTME, Mumbai. We build smart automations, and this dashboard is one of them.</p>
     </div>
   </section>
 
@@ -300,7 +308,12 @@ tbody tr:hover{background:var(--paper)}
 <footer class="join">
   <div class="wrap">
     <div class="join-row">
-      <p id="join-line"></p>
+      <div class="about">
+        <h2>What is SPARC?</h2>
+        <p>The Smart Process Automation and Research Club at MPSTME, Mumbai. We build smart automations: tools that take the tedious parts of college life and do them properly. This dashboard is our first.</p>
+        <p>We started in October 2026, and our first event is planned for January.</p>
+        <p class="open">Open to every student, any branch, any year.</p>
+      </div>
       <a class="cta" href="__CTA_URL__">__CTA_LABEL__</a>
     </div>
     <div class="colophon">
@@ -341,8 +354,6 @@ tbody tr:hover{background:var(--paper)}
   document.getElementById("hero-sub").textContent =
     "We asked " + meta.respondents + " students what their electives were actually like. "
     + "All " + meta.reviews + " reviews are here, course by course.";
-  document.getElementById("join-line").textContent =
-    "We're SPARC, the automation and research club.";
   document.getElementById("colophon").textContent = "Built by SPARC.";
 
   /* ------------------------------------------------------------- the picks */
