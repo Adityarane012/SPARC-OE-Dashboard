@@ -97,13 +97,10 @@ h1,h2,h3{margin:0}
   :root{--step-4:clamp(2.5rem,5vw,3.375rem)}
   .hero{padding:2rem 0 1.25rem}
   .hero p{margin-top:1rem}
-  .caveat{padding:.75rem 0 1.25rem}
   .basket-head{padding-top:1.5rem}
   .picks{margin-top:1rem}
   .pick{padding:1.5rem 0}
 }
-
-.caveat{padding:1rem 0 1.75rem;font-size:var(--step--1);color:var(--ink-3);max-width:70ch}
 
 /* ----------------------------------------------------------------- baskets */
 /* You take one course from each basket, so the page is two parallel answers
@@ -290,8 +287,6 @@ tbody tr:hover{background:var(--paper)}
     </div>
   </section>
 
-  <div class="wrap"><p class="caveat" id="caveat"></p></div>
-
   <div id="baskets"></div>
 
   <section class="method">
@@ -346,7 +341,6 @@ tbody tr:hover{background:var(--paper)}
   document.getElementById("hero-sub").textContent =
     "We asked " + meta.respondents + " students what their electives were actually like. "
     + "All " + meta.reviews + " reviews are here, course by course.";
-  document.getElementById("caveat").textContent = meta.caveat_line;
   document.getElementById("join-line").textContent =
     "We're SPARC, the automation and research club.";
   document.getElementById("colophon").textContent = "Built by SPARC.";

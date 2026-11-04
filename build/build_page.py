@@ -50,7 +50,6 @@ def main():
             ("distinct_oes", pub["meta"]["distinct_oes"]),
             ("oes_oe1", pub["meta"]["oes_oe1"]),
             ("oes_oe2", pub["meta"]["oes_oe2"]),
-            ("caveat_line", pub["meta"]["caveat_line"]),
         ])),
         ("cards", [OrderedDict([(k, c[k]) for k in
                                 ("basket", "label", "oe", "stat_value", "stat_label", "sub", "n", "tip")])
