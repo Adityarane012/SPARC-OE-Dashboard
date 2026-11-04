@@ -132,13 +132,13 @@ def main():
 
     SHAPE = {
         "crowd_favourite": lambda o: (figure(o["yes"], o["n_again"]), "would take it again",
-                                      count_phrase(n41(o), o["n_ica"], "expect 41+ marks")),
-        "easiest_to_score": lambda o: (figure(o["band_counts"]["Above 45"], o["n_ica"]), "expect 45+ marks",
+                                      count_phrase(n41(o), o["n_ica"], "expect 41+ out of 50")),
+        "easiest_to_score": lambda o: (figure(o["band_counts"]["Above 45"], o["n_ica"]), "expect 45+ out of 50",
                                        count_phrase(o["yes"], o["n_again"], "would take it again")),
         "hidden_gem": lambda o: (figure(o["yes"], o["n_again"]), "would take it again",
-                                 count_phrase(n41(o), o["n_ica"], "expect 41+ marks")),
+                                 count_phrase(n41(o), o["n_ica"], "expect 41+ out of 50")),
         "most_mixed": lambda o: (figure(o["yes"], o["n_again"]), "would take it again",
-                                 count_phrase(n41(o), o["n_ica"], "expect 41+ marks")),
+                                 count_phrase(n41(o), o["n_ica"], "expect 41+ out of 50")),
     }
     cards = []
     for basket, slot, label, o, why in picks:

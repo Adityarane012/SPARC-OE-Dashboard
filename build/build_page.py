@@ -41,8 +41,8 @@ def main():
         tpl = fh.read()
 
     # only the fields the page actually renders - anything else stays server-side
-    keep = ("name", "basket", "n", "pct_41_plus", "pct_yes", "band_counts", "yes", "maybe", "no",
-            "needs_confirm", "display_tip")
+    keep = ("name", "basket", "dept", "n", "pct_41_plus", "pct_yes", "band_counts", "yes",
+            "maybe", "no", "needs_confirm", "display_tip")
     payload = OrderedDict([
         ("meta", OrderedDict([
             ("reviews", pub["meta"]["reviews"]),
