@@ -63,18 +63,23 @@ h1,h2,h3{margin:0}
 .wordmark b{font-size:var(--step-1);font-weight:700;letter-spacing:-.02em}
 .wordmark span{font-size:var(--step--1);color:var(--ink-3)}
 /* Tells you which basket you are in once the heading has scrolled away. */
+.navlink{
+  font-size:var(--step--1);font-weight:600;color:var(--ink-2);text-decoration:none;
+  padding:.5rem 0;border-bottom:1px solid transparent;white-space:nowrap;
+}
+.navlink:hover{color:var(--ink);border-bottom-color:var(--bar)}
 .where{
   margin-left:auto;margin-right:1rem;font-size:var(--step--1);font-weight:600;color:var(--ink-2);
   opacity:0;transform:translateY(.25rem);transition:opacity .25s ease,transform .25s ease;
 }
 .where.on{opacity:1;transform:none}
-@media(max-width:34rem){.where{display:none}}
+@media(max-width:34rem){.where{display:none}.wordmark span{display:none}}
 .cta{
   display:inline-block;background:var(--brand-cta-bg);color:var(--brand-cta-ink);
   text-decoration:none;font-size:var(--step--1);font-weight:600;
   padding:.5rem .95rem;border:1px solid var(--brand-cta-bg);border-radius:2px;
 }
-.masthead .cta{margin-left:auto}
+.masthead .cta{margin-left:auto;white-space:nowrap}
 /* .where carries its own margin-left:auto, so the two sit together on the right. */
 .masthead .where + .cta{margin-left:0}
 /* display:none does not stop .where matching that sibling rule, so once the
@@ -245,7 +250,7 @@ tbody tr:hover{background:var(--paper)}
 }
 /* The sign-off and the colophon are one dark block. Split across two
    backgrounds the pale strip underneath read as leftover page. */
-.join{background:var(--ink);color:var(--surface)}
+.join{background:var(--ink);color:var(--surface);scroll-margin-top:0}
 .join .wrap{padding:2.25rem 1.5rem 1.5rem}
 .join-row{display:flex;align-items:center;justify-content:space-between;gap:1.5rem 3rem;flex-wrap:wrap}
 .about{flex:0 1 40rem;max-width:40rem}
@@ -281,6 +286,7 @@ tbody tr:hover{background:var(--paper)}
     <!-- Not a link. It labels the page you are already on, and as an anchor it
          picked up link styling and invited a click that went nowhere useful. -->
     <span class="wordmark">__WORDMARK__<span>OE Insights</span></span>
+    <a class="navlink" href="#about">Who we are</a>
     <span class="where" id="where" aria-hidden="true"></span>
     <a class="cta" href="__CTA_URL__">__CTA_LABEL__</a>
   </div>
@@ -305,7 +311,7 @@ tbody tr:hover{background:var(--paper)}
   </section>
 </main>
 
-<footer class="join">
+<footer class="join" id="about">
   <div class="wrap">
     <div class="join-row">
       <div class="about">
@@ -602,6 +608,35 @@ tbody tr:hover{background:var(--paper)}
     };
     document.querySelectorAll("tbody").forEach(function(b){ window.__watchMeters(b); });
   }
+
+  /* ------------------------------------------------------------- in-page links */
+  /* Handled here rather than left to the browser's own fragment behaviour. The
+     page below the hero is built by this script, so a visitor arriving at
+     #about is sent to the footer while the document is still short, and then
+     three thousand pixels of baskets are inserted above them. Doing the scroll
+     after the build is the only way it lands in the right place. */
+  function goTo(hash){
+    if(hash === "#top"){
+      window.scrollTo({ top: 0, behavior: ANIM ? "smooth" : "auto" });
+      return true;
+    }
+    var target = hash && hash.length > 1 ? document.getElementById(hash.slice(1)) : null;
+    if(!target) return false;
+    target.scrollIntoView({ behavior: ANIM ? "smooth" : "auto", block: "start" });
+    return true;
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener("click", function(e){
+      var hash = a.getAttribute("href");
+      if(goTo(hash)){
+        e.preventDefault();
+        if(window.history && history.replaceState) history.replaceState(null, "", hash);
+      }
+    });
+  });
+
+  if(location.hash) goTo(location.hash);
 
   /* Which basket you are in, once its heading has scrolled past. */
   var where = document.getElementById("where");
