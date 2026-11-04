@@ -4,6 +4,9 @@
   "cta_url": "https://tally.so/r/peeeQZ",
   "cta_label": "Join SPARC",
 
+  "_site_comment": "Where the dashboard lives. The share cards print it so a card can deliver on its own promise: someone who sees one course can reach the other 27.",
+  "site_url": "https://sparc-oe-dashboard.vercel.app",
+
   "wordmark_text": "SPARC",
   "logo_path": "assets/sparc-logo.png",
 

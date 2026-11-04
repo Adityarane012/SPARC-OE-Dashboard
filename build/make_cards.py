@@ -43,7 +43,9 @@ body{background:#30334a;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe
 .foot .mark img{display:block;height:92px;width:auto;margin-bottom:6px}
 .foot .mark span{display:block;margin-top:10px;font-size:28px;font-weight:400;letter-spacing:0;color:__INK3__}
 .foot .join{font-size:28px;line-height:1.4;color:__INK2__;max-width:540px}
-.foot .join b{display:block;font-size:32px;color:__INK__}
+.foot .join b{display:block;font-size:30px;color:__INK__}
+.foot .join .u{display:block;margin-bottom:8px;font-size:30px;font-weight:700;
+               letter-spacing:-.01em;color:__INK__;white-space:nowrap}
 
 /* opener */
 .card.opener .lede{margin-top:auto;font-size:88px;font-weight:700;letter-spacing:-.04em;line-height:1.05}
@@ -75,6 +77,8 @@ def main():
 
     url = cfg["cta_url"].strip()
     pretty = url.split("://", 1)[-1].rstrip("/") if url else ""
+    site = cfg.get("site_url", "").strip()
+    site_pretty = site.split("://", 1)[-1].rstrip("/") if site else ""
 
     logo_path = cfg.get("logo_path", "").strip()
     if logo_path:
@@ -92,9 +96,11 @@ def main():
     foot = (
         '<div class="foot">'
         '<div class="mark">%s<span>OE Insights</span></div>'
-        '<div class="join"><b>Built by SPARC from real student reviews.</b>'
-        "We're the automation and research club. Come build with us: %s</div>"
-        '</div>' % (mark, esc(pretty) if pretty else "&rarr; link in bio")
+        '<div class="join"><b>All %d courses</b><span class="u">%s</span>'
+        "Built by SPARC, the automation and research club. Join us: %s</div>"
+        '</div>' % (mark, pub["meta"]["distinct_oes"],
+                    esc(site_pretty) if site_pretty else "link in bio",
+                    esc(pretty) if pretty else "link in bio")
     )
 
     out = ['<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">',
