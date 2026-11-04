@@ -122,7 +122,7 @@ def main():
         short = [t for t in tips if len(t) <= 160]
         display = (short[0] if short else (tips[-1] if tips else None))
         o = OrderedDict()
-        for k in ("oe_key", "name", "short", "basket", "dept", "n", "n_ica", "band_counts",
+        for k in ("oe_key", "name", "short", "basket", "dept", "format", "n", "n_ica", "band_counts",
                   "pct_41_plus", "pct_above_45", "n_again", "yes", "maybe", "no", "pct_yes",
                   "subject_type", "needs_confirm", "confirm_note", "card_eligible"):
             o[k] = s[k]

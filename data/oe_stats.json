@@ -43,6 +43,7 @@
       "n_tips": 6,
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": true
@@ -73,6 +74,7 @@
       "n_tips": 3,
       "basket": "OE-I",
       "dept": "Mechanical",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "Confirmed from the official OE-I basket. The bare 'RES' entries fold in here: one RES tip says 'Mechanical faculty ke close raho' and Renewable Energy Sources is the Mechanical OE-I course, while Research Methodology is Civil. Confirmed by the team 2 Nov 2026.",
       "card_eligible": true
@@ -103,6 +105,7 @@
       "n_tips": 4,
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": true
@@ -134,6 +137,7 @@
       "n_tips": 4,
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": true
@@ -162,6 +166,7 @@
       "n_tips": 2,
       "basket": "OE-I",
       "dept": "DS",
+      "format": "2h theory + 2h lab",
       "needs_confirm": false,
       "confirm_note": "BSDM/BDMS/bdms folded in; long form present in data confirms expansion.",
       "card_eligible": true
@@ -190,6 +195,7 @@
       "n_tips": 4,
       "basket": "OE-I",
       "dept": "EXTC",
+      "format": "2h theory + 2h lab",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": true
@@ -218,6 +224,7 @@
       "n_tips": 3,
       "basket": "OE-I",
       "dept": "EXTC",
+      "format": "2h theory + 2h lab",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": true
@@ -248,6 +255,7 @@
       "n_tips": 0,
       "basket": "OE-I",
       "dept": "IT",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": true
@@ -279,6 +287,7 @@
       "n_tips": 1,
       "basket": "OE-II",
       "dept": "Mechanical",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "Long form present in data confirms expansion.",
       "card_eligible": true
@@ -307,6 +316,7 @@
       "n_tips": 1,
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "LTLS/ltls folded in; long form present in data.",
       "card_eligible": false
@@ -334,7 +344,8 @@
       "subject_type": {},
       "n_tips": 3,
       "basket": "OE-I",
-      "dept": "MXTC",
+      "dept": "Mechatronics",
+      "format": "2h theory + 2h lab",
       "needs_confirm": false,
       "confirm_note": "ARVR/ArVr/IVRAR/IVARVR folded in; expanded to the official OE-I name.",
       "card_eligible": false
@@ -363,6 +374,7 @@
       "n_tips": 3,
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false
@@ -391,6 +403,7 @@
       "n_tips": 2,
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "Expanded from the official OE-II basket; the long form is exactly what FIMIS spells.",
       "card_eligible": false
@@ -421,6 +434,7 @@
       "n_tips": 2,
       "basket": "OE-II",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false
@@ -449,6 +463,7 @@
       "n_tips": 2,
       "basket": "OE-I",
       "dept": "Mechanical",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "Long form present in data confirms expansion.",
       "card_eligible": false
@@ -477,6 +492,7 @@
       "n_tips": 1,
       "basket": "OE-I",
       "dept": "Mechanical",
+      "format": "2h theory + 2h lab",
       "needs_confirm": false,
       "confirm_note": "'3d' folded in.",
       "card_eligible": false
@@ -505,6 +521,7 @@
       "n_tips": 2,
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "Confirmed against the official OE-II basket.",
       "card_eligible": false
@@ -533,6 +550,7 @@
       "n_tips": 1,
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false
@@ -561,6 +579,7 @@
       "n_tips": 1,
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "The bare 'ML' entry folds in here. No Machine Learning course exists in either basket; confirmed by the team 2 Nov 2026.",
       "card_eligible": false
@@ -589,6 +608,7 @@
       "n_tips": 1,
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "Spelled out by respondents; kept distinct from the bare 'RES' entries.",
       "card_eligible": false
@@ -616,7 +636,8 @@
       "subject_type": {},
       "n_tips": 1,
       "basket": "OE-I",
-      "dept": "MXTC",
+      "dept": "Mechatronics",
+      "format": "2h theory + 2h lab",
       "needs_confirm": false,
       "confirm_note": "Long form present in data confirms expansion.",
       "card_eligible": false
@@ -647,6 +668,7 @@
       "n_tips": 1,
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false
@@ -675,6 +697,7 @@
       "n_tips": 0,
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "'EM' resolved to the OE-II BSH course; confirmed by the team 2 Nov 2026.",
       "card_eligible": false
@@ -703,6 +726,7 @@
       "n_tips": 1,
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "RESOLVED: the official basket lists 'Life Skills' (OE-II, BSH) and 'Leading Through Life Skills' (OE-II, TM) as two separate courses. They are never merged, so LTLS stays at N=3 and stays out of the cards.",
       "card_eligible": false
@@ -731,6 +755,7 @@
       "n_tips": 0,
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false
@@ -759,6 +784,7 @@
       "n_tips": 1,
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false
@@ -787,6 +813,7 @@
       "n_tips": 0,
       "basket": "OE-II",
       "dept": "Mechanical",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "'PM' resolved to the OE-II Mechanical course, NOT Elements of Project Management (which respondents spelled out separately); confirmed by the team 2 Nov 2026.",
       "card_eligible": false
@@ -815,6 +842,7 @@
       "n_tips": 1,
       "basket": "OE-II",
       "dept": "Civil",
+      "format": "3h theory",
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false

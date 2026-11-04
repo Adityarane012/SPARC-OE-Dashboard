@@ -59,7 +59,12 @@ def load_baskets(data_dir):
     for r in rows:
         assert r["basket"] in ("OE-I", "OE-II"), "bad basket %r" % r["basket"]
         assert r["official_name"] not in by_name, "duplicate official name %r" % r["official_name"]
-        by_name[r["official_name"]] = (r["basket"], r["dept"], r["note"])
+        th, pra = int(r["th"]), int(r["pra"])
+        # What a student actually wants to know is whether they will be in a lab.
+        # Hours come from the registrar, so this is the same for everyone and does
+        # not depend on how many people happened to review the course.
+        fmt = ("%dh theory + %dh lab" % (th, pra)) if pra else ("%dh theory" % th)
+        by_name[r["official_name"]] = (r["basket"], r["dept"], r["note"], fmt)
     return by_name
 
 
@@ -298,6 +303,7 @@ def main():
             ("n_tips", len(tips)),
             ("basket", BASKETS[meta["name"]][0]),
             ("dept", BASKETS[meta["name"]][1]),
+            ("format", BASKETS[meta["name"]][3]),
             ("needs_confirm", meta["needs_confirm"]),
             ("confirm_note", meta["note"]),
             ("card_eligible", n >= 4 and not meta["needs_confirm"]),

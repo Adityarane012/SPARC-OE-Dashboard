@@ -26,6 +26,7 @@
       "short": "FD",
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "n": 7,
       "n_ica": 7,
       "band_counts": {
@@ -65,6 +66,7 @@
       "short": "Renewable",
       "basket": "OE-I",
       "dept": "Mechanical",
+      "format": "3h theory",
       "n": 6,
       "n_ica": 6,
       "band_counts": {
@@ -101,6 +103,7 @@
       "short": "Forensic",
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "n": 5,
       "n_ica": 5,
       "band_counts": {
@@ -138,6 +141,7 @@
       "short": "GIS",
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 5,
       "n_ica": 5,
       "band_counts": {
@@ -176,6 +180,7 @@
       "short": "BDMS",
       "basket": "OE-I",
       "dept": "DS",
+      "format": "2h theory + 2h lab",
       "n": 4,
       "n_ica": 4,
       "band_counts": {
@@ -209,6 +214,7 @@
       "short": "5G",
       "basket": "OE-I",
       "dept": "EXTC",
+      "format": "2h theory + 2h lab",
       "n": 4,
       "n_ica": 4,
       "band_counts": {
@@ -244,6 +250,7 @@
       "short": "Drone",
       "basket": "OE-I",
       "dept": "EXTC",
+      "format": "2h theory + 2h lab",
       "n": 4,
       "n_ica": 4,
       "band_counts": {
@@ -278,6 +285,7 @@
       "short": "Game Des.",
       "basket": "OE-I",
       "dept": "IT",
+      "format": "3h theory",
       "n": 4,
       "n_ica": 4,
       "band_counts": {
@@ -310,6 +318,7 @@
       "short": "EPM",
       "basket": "OE-II",
       "dept": "Mechanical",
+      "format": "3h theory",
       "n": 4,
       "n_ica": 4,
       "band_counts": {
@@ -345,6 +354,7 @@
       "short": "LTLS",
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "n": 3,
       "n_ica": 3,
       "band_counts": {
@@ -376,7 +386,8 @@
       "name": "Introduction to Virtual Reality and Augmented Reality",
       "short": "AR/VR",
       "basket": "OE-I",
-      "dept": "MXTC",
+      "dept": "Mechatronics",
+      "format": "2h theory + 2h lab",
       "n": 3,
       "n_ica": 3,
       "band_counts": {
@@ -411,6 +422,7 @@
       "short": "Disaster",
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 3,
       "n_ica": 3,
       "band_counts": {
@@ -444,6 +456,7 @@
       "short": "FIMIS",
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "n": 3,
       "n_ica": 3,
       "band_counts": {
@@ -477,6 +490,7 @@
       "short": "Adv/PR",
       "basket": "OE-II",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -512,6 +526,7 @@
       "short": "EVT",
       "basket": "OE-I",
       "dept": "Mechanical",
+      "format": "3h theory",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -545,6 +560,7 @@
       "short": "3D Print",
       "basket": "OE-I",
       "dept": "Mechanical",
+      "format": "2h theory + 2h lab",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -577,6 +593,7 @@
       "short": "CEM",
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -610,6 +627,7 @@
       "short": "Climate",
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -642,6 +660,7 @@
       "short": "Mod/Sim",
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -674,6 +693,7 @@
       "short": "Res. Meth.",
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -705,7 +725,8 @@
       "name": "Supervisory Control and Data Acquisition",
       "short": "SCADA",
       "basket": "OE-I",
-      "dept": "MXTC",
+      "dept": "Mechatronics",
+      "format": "2h theory + 2h lab",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -738,6 +759,7 @@
       "short": "Interior",
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 2,
       "n_ica": 2,
       "band_counts": {
@@ -772,6 +794,7 @@
       "short": "Env. Mgmt",
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "n": 1,
       "n_ica": 1,
       "band_counts": {
@@ -802,6 +825,7 @@
       "short": "Life Sk.",
       "basket": "OE-II",
       "dept": "BSH",
+      "format": "3h theory",
       "n": 1,
       "n_ica": 1,
       "band_counts": {
@@ -834,6 +858,7 @@
       "short": "Smart Cit.",
       "basket": "OE-I",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 1,
       "n_ica": 1,
       "band_counts": {
@@ -864,6 +889,7 @@
       "short": "Mgmt/Movies",
       "basket": "OE-II",
       "dept": "TM",
+      "format": "3h theory",
       "n": 1,
       "n_ica": 1,
       "band_counts": {
@@ -896,6 +922,7 @@
       "short": "Prod. Mgmt",
       "basket": "OE-II",
       "dept": "Mechanical",
+      "format": "3h theory",
       "n": 1,
       "n_ica": 1,
       "band_counts": {
@@ -926,6 +953,7 @@
       "short": "Waste",
       "basket": "OE-II",
       "dept": "Civil",
+      "format": "3h theory",
       "n": 1,
       "n_ica": 1,
       "band_counts": {
