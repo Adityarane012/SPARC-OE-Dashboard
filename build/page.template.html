@@ -554,13 +554,12 @@ tbody tr:hover{background:var(--paper)}
 
   /* ------------------------------------------------------------- method */
   var terms = [
-    ["Expecting 41+ of 50", "The share of reviewers who said they expect 41 or more out of 50 in the ICA. We don't average the grade bands, because that would invent a number nobody gave us."],
     ["Department", "Which department runs the course, taken from the official OE basket list rather than from reviewers."],
     ["Hours", "Teaching hours a week, from the same official list. Every course is worth 3 credits. Only OE-I has courses with a lab; every OE-II course is theory only."],
+    ["Expecting 41+ of 50", "The share of reviewers who said they expect 41 or more out of 50 in the ICA. We don't average the grade bands, because that would invent a number nobody gave us."],
     ["Would take again", "The share who answered yes. Maybe and no both count as not-yes."],
     ["Reviews", "How many people reviewed that course. Four is the cut-off for the picks at the top of each basket."],
-    ["Tips", "Students' own words, edited for clarity. Nothing naming a professor is published, and complaints about a person rather than the course were left out."],
-    ["Workload", "We asked about it on a 1 to 5 scale, but people read the scale in opposite directions. Some meant heavy, some meant great, so it tells you nothing and we left it out."]
+    ["Tips", "Students' own words, edited for clarity. Nothing naming a professor is published, and complaints about a person rather than the course were left out."]
   ];
   var dl = document.getElementById("method");
   terms.forEach(function(t){
