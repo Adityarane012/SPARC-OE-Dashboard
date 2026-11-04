@@ -1,7 +1,7 @@
 basket,dept,official_name,note
 OE-I,EXTC,Drone Technology,
 OE-I,EXTC,5G for Everyone,
-OE-I,EXTC,Wireless Communications for Everyone,"expanded from 'Wireless Communications for Every' - truncated in the source sheet"
+OE-I,EXTC,Wireless Communications for Everyone,expanded from 'Wireless Communications for Every' - truncated in the source sheet
 OE-I,Civil,Fundamentals of Climate Change,
 OE-I,Civil,Disaster Management,
 OE-I,Civil,Interior Design,
@@ -11,23 +11,23 @@ OE-I,Civil,Smart Cities,
 OE-I,Mechanical,Renewable Energy Sources,
 OE-I,Mechanical,3D Printing,
 OE-I,Mechanical,Industrial Ergonomics,
-OE-I,Mechanical,Engineering Materials for Daily Life,"expanded from 'Engineering Materials for Daily Lif' - truncated in the source sheet"
+OE-I,Mechanical,Engineering Materials for Daily Life,expanded from 'Engineering Materials for Daily Lif' - truncated in the source sheet
 OE-I,Mechanical,Electric Vehicle Technology,
 OE-I,MXTC,Elements of Automation,
-OE-I,MXTC,Supervisory Control and Data Acquisition,"expanded from 'Supervisory Control and Data Acqu' - truncated in the source sheet"
-OE-I,MXTC,Introduction to Virtual Reality and Augmented Reality,"expanded from 'Introduction to Virtual Reality and A' - truncated in the source sheet"
+OE-I,MXTC,Supervisory Control and Data Acquisition,expanded from 'Supervisory Control and Data Acqu' - truncated in the source sheet
+OE-I,MXTC,Introduction to Virtual Reality and Augmented Reality,expanded from 'Introduction to Virtual Reality and A' - truncated in the source sheet
 OE-I,DS,Data Analytics,
-OE-I,DS,Basic Decision Making with Spreadsheets,"expanded from 'Basic Decision Making with Spread' - truncated in the source sheet"
+OE-I,DS,Basic Decision Making with Spreadsheets,expanded from 'Basic Decision Making with Spread' - truncated in the source sheet
 OE-I,IT,Game Design,"source sheet spells it 'Game Desing'; obvious typo, corrected"
 OE-I,BSH,Sustainable Energy Technologies,
-OE-I,BSH,Modelling and Simulation,
-OE-I,BSH,Introduction to Forensic Science,
-OE-II,BSH,Quantum Computing and Technology,"expanded from 'Quantum Computing and Technolog' - truncated in the source sheet"
+OE-II,BSH,Modelling and Simulation,"OE-II, confirmed from the registrar's detail sheet: it sits below the OE-II separator and runs Thursday 4-6 plus Friday 4-5, which is the OE-II slot. Earlier text extraction put it in OE-I because the merged OE-II label landed on the Quantum Computing row."
+OE-II,BSH,Introduction to Forensic Science,"OE-II, confirmed from the registrar's detail sheet: it sits below the OE-II separator and runs Thursday 4-6 plus Friday 4-5, which is the OE-II slot. Earlier text extraction put it in OE-I because the merged OE-II label landed on the Quantum Computing row."
+OE-II,BSH,Quantum Computing and Technology,expanded from 'Quantum Computing and Technolog' - truncated in the source sheet
 OE-II,BSH,Environment Management,
 OE-II,BSH,Life Skills,"a DIFFERENT course from 'Leading Through Life Skills' (OE-II, TM) - the sheet lists both separately, so they are never merged"
 OE-II,TM,Creativity and Ethics in Marketing,
-OE-II,TM,Leading Through Life Skills,"sheet writes 'Leading through Life Skills'; cased for display"
-OE-II,TM,Technology and Innovation for Marketing,"expanded from 'Technology and Innovation for Mar' - truncated in the source sheet"
+OE-II,TM,Leading Through Life Skills,sheet writes 'Leading through Life Skills'; cased for display
+OE-II,TM,Technology and Innovation for Marketing,expanded from 'Technology and Innovation for Mar' - truncated in the source sheet
 OE-II,TM,Financial Derivatives,
 OE-II,TM,"Financial Institutions, Markets, Instruments and Services","expanded from 'Financial Institutions, Markets, Instr' - truncated in the source sheet; the expansion is what the acronym FIMIS spells"
 OE-II,TM,Management Through Movies,
@@ -35,4 +35,4 @@ OE-II,Civil,Advertising and Public Relations,
 OE-II,Civil,Waste Management,
 OE-II,Mechanical,Production Management,
 OE-II,Mechanical,Elements of Project Management,
-OE-II,Mechanical,Operations and Supply Chain Management,"expanded from 'Operations and Supply Chain Mana' - truncated in the source sheet"
+OE-II,Mechanical,Operations and Supply Chain Management,expanded from 'Operations and Supply Chain Mana' - truncated in the source sheet

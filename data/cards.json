@@ -2,8 +2,8 @@
   "meta": {
     "gate": "N>=4 reviews and a confirmed course name",
     "eligible_oes": 9,
-    "eligible_oe1": 7,
-    "eligible_oe2": 2,
+    "eligible_oe1": 6,
+    "eligible_oe2": 3,
     "selection_note": "Cards are picked within a basket, not across both: a student chooses one OE-I and one OE-II, so a cross-basket ranking would answer a question nobody is asking.",
     "phrasing_note": "Cards state counts, not percentages: at N=4 a percentage overclaims.",
     "caveat_line": "79 reviews from 48 students, collected in October 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity."
@@ -92,7 +92,7 @@
     {
       "basket": "OE-II",
       "slot": "easiest_to_score",
-      "reason": "best candidate Elements of Project Management does not support the claim"
+      "reason": "best candidate Introduction to Forensic Science does not support the claim"
     },
     {
       "basket": "OE-II",

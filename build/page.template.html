@@ -149,6 +149,26 @@ h1,h2,h3{margin:0}
 
 /* ----------------------------------------------------------------- tables */
 .table-head{margin:2.75rem 0 .25rem;font-size:var(--step-1);font-weight:700;letter-spacing:-.02em}
+
+/* The thin courses are most of the rows and almost none of the evidence, so they
+   start folded. Native <details>: no script, keyboard-operable, and the rows are
+   still in the document rather than thrown away. */
+.more{margin-top:2.25rem;border-top:1px solid var(--rule)}
+.more > summary{
+  list-style:none;cursor:pointer;padding:1rem 0;display:flex;align-items:center;gap:.625rem;
+  font-size:var(--step-0);font-weight:600;letter-spacing:-.01em;color:var(--ink);
+}
+.more > summary::-webkit-details-marker{display:none}
+.more > summary::before{
+  content:"";width:.5rem;height:.5rem;flex:none;border-right:2px solid var(--bar);
+  border-bottom:2px solid var(--bar);transform:rotate(-45deg);transition:transform .18s ease;
+  margin-bottom:.125rem;
+}
+.more[open] > summary::before{transform:rotate(45deg);margin-bottom:0}
+.more > summary:hover{color:var(--bar)}
+.more > summary:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.more .note{margin-top:0}
+@media(prefers-reduced-motion:reduce){.more > summary::before{transition:none}}
 .note{margin:.375rem 0 1.25rem;font-size:var(--step--1);color:var(--ink-2);max-width:64ch}
 .panel{background:var(--surface);border:1px solid var(--rule);border-radius:3px;padding:.25rem 1.25rem}
 table{width:100%;border-collapse:collapse;font-size:var(--step--1)}
@@ -517,12 +537,17 @@ tbody tr:hover{background:var(--paper)}
       tw.appendChild(p1);
     }
     if(thin.length){
-      tw.appendChild(el("h3", "table-head",
-        plural(thin.length, "course", "courses") + " with only one or two reviews"));
-      tw.appendChild(el("p", "note", "One or two people is too few to call anything, so these stay out of the picks above. The numbers are here if you want them."));
+      var more = document.createElement("details");
+      more.className = "more";
+      var sum = document.createElement("summary");
+      sum.textContent = "Show the other " + plural(thin.length, "course", "courses")
+                      + ", reviewed by three people or fewer";
+      more.appendChild(sum);
+      more.appendChild(el("p", "note", "One or two people is too few to call anything, so these stay out of the picks above. The numbers are here if you want them."));
       var p2 = el("div", "panel");
       p2.appendChild(mount(buildTable(), thin, "Sorted by review count. Sort by any heading."));
-      tw.appendChild(p2);
+      more.appendChild(p2);
+      tw.appendChild(more);
     }
     sec.appendChild(tw);
     host.appendChild(sec);
