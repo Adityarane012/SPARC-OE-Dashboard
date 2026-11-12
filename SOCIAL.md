@@ -19,26 +19,26 @@ numbers; each card after it answers one question.
 
 | # | File | What it says |
 |---|---|---|
-| 1 | `00-opener.png` | 79 reviews, 28 courses, 48 students |
-| 2 | `01-oe1-most-liked.png` | OE-I, Basic Decision Making, 4 of 4 would retake |
+| 1 | `00-opener.png` | 104 reviews, 31 courses, 63 students |
+| 2 | `01-oe1-most-liked.png` | OE-I, Basic Decision Making, 5 of 6 would retake |
 | 3 | `02-oe1-best-marks.png` | OE-I, 5G for Everyone, 3 of 4 expect 45+ |
-| 4 | `03-oe1-worth-a-look.png` | OE-I, Drone Technology, 3 of 4 would retake |
-| 5 | `04-oe1-mixed-reviews.png` | OE-I, Renewable Energy Sources, 1 of 6 would retake |
+| 4 | `03-oe1-worth-a-look.png` | OE-I, AR/VR, 3 of 4 would retake |
+| 5 | `04-oe1-mixed-reviews.png` | OE-I, Renewable Energy Sources, 1 of 7 would retake |
 | 6 | `05-oe2-most-liked.png` | OE-II, Financial Derivatives, 7 of 7 would retake |
-| 7 | `06-oe2-mixed-reviews.png` | OE-II, Elements of Project Management, 2 of 4 |
+| 7 | `06-oe2-mixed-reviews.png` | OE-II, Elements of Project Management, 2 of 9 |
 
 Card 5 is the one people will argue with. That is fine and it is the point: it is
-six real reviews, not an opinion. Do not drop it to keep the set positive.
+seven real reviews, not an opinion. Do not drop it to keep the set positive.
 
 **Caption draft**
 
-> We asked 48 students what their Open Electives were actually like. 79 reviews,
-> 28 courses, both baskets.
+> We asked 63 students what their Open Electives were actually like. 104 reviews,
+> 31 courses, both baskets.
 >
 > No course gets called a winner on fewer than four reviews. Every number shows
 > how many people it came from.
 >
-> Full table, all 28 courses: sparc-oe-dashboard.vercel.app
+> Full table, all 31 courses: sparc-oe-dashboard.vercel.app
 
 ---
 
@@ -54,7 +54,7 @@ The thing worth filming is the bars drawing themselves as you scroll.
 | Time | Shot | On-screen text |
 |---|---|---|
 | 0:00-0:02 | Hero, held still. "Which OE should you take?" | Picking your OE blind? |
-| 0:02-0:07 | Scroll into the OE-I picks. "4 of 4" lands big. | 48 students told us |
+| 0:02-0:07 | Scroll into the OE-I picks. "5 of 6" lands big. | 63 students told us |
 | 0:07-0:14 | Scroll through the course table. Bars draw as rows arrive. **Slow here.** | none, let it play |
 | 0:14-0:18 | Tap "Show the other 9 courses". It expands. | Every course, not just the popular ones |
 | 0:18-0:22 | Scroll to OE-II. "7 of 7, Financial Derivatives". | both baskets |
@@ -86,7 +86,7 @@ Trending audio with a clear beat. Cut on the beat at 0:07 (into the table) and
 
 **Caption draft**
 
-> Every Open Elective, with the numbers behind it. 79 reviews from 48 students.
+> Every Open Elective, with the numbers behind it. 104 reviews from 63 students.
 >
 > sparc-oe-dashboard.vercel.app
 

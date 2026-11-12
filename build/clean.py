@@ -23,7 +23,7 @@ import sys
 from collections import Counter, defaultdict, OrderedDict
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RAW = os.path.join(ROOT, "Docs", "Response Sheet.csv")
+RAW = os.path.join(ROOT, "Docs", "Response Sheet 12 Nov.csv")
 OUT = os.path.join(ROOT, "data")
 
 # ---------------------------------------------------------------- dedupe ledger
@@ -111,6 +111,12 @@ CANON = OrderedDict([
     ("waste_mgmt", dict(name="Waste Management", short="Waste", needs_confirm=False, note="")),
     ("em", dict(name="Environment Management", short="Env. Mgmt", needs_confirm=False,
                 note="'EM' resolved to the OE-II BSH course; confirmed by the team 2 Nov 2026.")),
+    ("eng_materials", dict(name="Engineering Materials for Daily Life", short="Eng. Mat.", needs_confirm=False,
+                           note="First reviewed in the 12 Nov export. Respondent wrote 'in Daily life'; the basket list says 'for Daily Life'.")),
+    ("ergonomics", dict(name="Industrial Ergonomics", short="Ergonomics", needs_confirm=False,
+                        note="First reviewed in the 12 Nov export.")),
+    ("quantum", dict(name="Quantum Computing and Technology", short="Quantum", needs_confirm=False,
+                     note="First reviewed in the 12 Nov export; expanded to the official OE-II name.")),
     ("pm", dict(name="Production Management", short="Prod. Mgmt", needs_confirm=False,
                 note="'PM' resolved to the OE-II Mechanical course, NOT Elements of Project Management (which respondents spelled out separately); confirmed by the team 2 Nov 2026.")),
 ])
@@ -159,6 +165,21 @@ NAME_MAP = {
     "supervisory control and data acquisition": ("scada", "high"),
     "management thru movies": ("mgmt_movies", "high"),
     "ml": ("modelling_simulation", "medium"),   # team-confirmed 2 Nov 2026
+
+    # --- spellings first seen in the 12 Nov export ---
+    # plain case or wording variants of courses already in the data
+    "ar/vr": ("arvr", "high"),
+    "forensics": ("forensic_science", "high"),
+    "interior": ("interior_design", "high"),
+    "environment management": ("em", "high"),
+    "renewable energy sources": ("renewable_energy", "high"),
+    # courses reviewed for the first time
+    "engineering materials in daily life": ("eng_materials", "high"),
+    "industrial ergonomics": ("ergonomics", "high"),
+    "quantum computing": ("quantum", "high"),
+    # acronyms and short forms, team-confirmed 12 Nov 2026
+    "project management": ("epm", "medium"),
+    "rm": ("research_methodology", "medium"),
     "modelling and simulation": ("modelling_simulation", "high"),
     "smart cities": ("smart_cities", "high"),
     "waste management": ("waste_mgmt", "high"),
@@ -316,8 +337,8 @@ def main():
     assert all(s["basket"] in ("OE-I", "OE-II") for s in stats), "an OE has no basket"
     assert (sum(s["n"] for s in stats if s["basket"] == "OE-I")
             + sum(s["n"] for s in stats if s["basket"] == "OE-II")) == len(reviews),         "reviews split across baskets does not sum to the review count"
-    assert len(reviews) == 79, "expected 79 reviews after dedupe, got %d" % len(reviews)
-    assert len({rv["respondent_id"] for rv in reviews}) == 48, "expected 48 respondents"
+    assert len(reviews) == 104, "expected 104 reviews after dedupe, got %d" % len(reviews)
+    assert len({rv["respondent_id"] for rv in reviews}) == 63, "expected 63 respondents"
     assert len({rv["review_id"] for rv in reviews}) == len(reviews), "duplicate review_id"
     assert set(DROP_SUBMISSIONS) == {"yXbQEAd", "GeVMy4z", "zEAlK61"}, "dedupe ledger drifted"
     # the rj4L8Jv merge must actually fire - it silently no-ops if the key shape is wrong
@@ -336,6 +357,23 @@ def main():
         w.writerows(reviews)
 
     n_resp = len({rv["respondent_id"] for rv in reviews})
+
+    # Read the collection window off the data. It was hardcoded as "October 2026"
+    # and the 12 Nov export immediately made that wrong, on a card that is already
+    # posted. Deriving it means the next export cannot repeat that.
+    months = sorted({rv["submitted_at"][:7] for rv in reviews if rv["submitted_at"]})
+    def pretty(ym):
+        y, m = ym.split("-")
+        return "%s %s" % (["January", "February", "March", "April", "May", "June", "July",
+                           "August", "September", "October", "November", "December"][int(m) - 1], y)
+    if not months:
+        collected = "2026"
+    elif len(months) == 1:
+        collected = pretty(months[0])
+    elif months[0][:4] == months[-1][:4]:
+        collected = "%s and %s" % (pretty(months[0]).split()[0], pretty(months[-1]))
+    else:
+        collected = "%s to %s" % (pretty(months[0]), pretty(months[-1]))
     meta = OrderedDict([
         ("generated_from", "Docs/Response Sheet.csv"),
         ("submissions_raw", len(rows)),
@@ -350,7 +388,8 @@ def main():
         ("reviews_oe2", sum(s["n"] for s in stats if s["basket"] == "OE-II")),
         ("basket_source", "data/basket_map.csv - the registrar's OE-I/OE-II list"),
         ("needs_confirm_oes", [s["name"] for s in stats if s["needs_confirm"]]),
-        ("caveat_line", "%d reviews from %d students, collected in October 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity." % (len(reviews), n_resp)),
+        ("collected", collected),
+        ("caveat_line", "%d reviews from %d students, collected in %s. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity." % (len(reviews), n_resp, collected)),
         ("band_midpoints_note", "avg_ica_midpoint is a sort key only; the published scorability metric is pct_41_plus, a direct count."),
     ])
     with io.open(os.path.join(OUT, "oe_stats.json"), "w", encoding="utf-8") as fh:

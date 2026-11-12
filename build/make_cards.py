@@ -32,6 +32,11 @@ body{background:#30334a;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe
 .label{font-size:34px;font-weight:600;letter-spacing:-.01em;color:__INK3__}
 .label .bk{display:block;margin-bottom:10px;font-size:30px;font-weight:700;letter-spacing:.14em;color:__BAR__}
 .oe{margin-top:28px;font-size:76px;font-weight:700;letter-spacing:-.035em;line-height:1.04}
+/* A card is a fixed 1080x1350, so a long course name pushes the footer off the
+   bottom. The name steps down by length instead. "Introduction to Virtual
+   Reality and Augmented Reality" is 53 characters and overflowed by 42px. */
+.oe.mid{font-size:66px}
+.oe.long{font-size:58px;line-height:1.06}
 .figure{margin-top:76px;font-size:230px;font-weight:700;letter-spacing:-.055em;line-height:.9;white-space:nowrap}
 .qual{margin-top:18px;font-size:60px;font-weight:600;letter-spacing:-.025em;line-height:1.1}
 .sub{margin-top:30px;font-size:36px;color:__INK2__}
@@ -113,10 +118,10 @@ def main():
         '<div class="lede">%d students told us what their electives were actually like.</div>'
         '<div class="stats"><div><b>%d</b>reviews</div><div><b>%d</b>courses</div>'
         '<div><b>%d</b>students</div></div>'
-        '<div class="caveat">Collected October 2026. Every course shows how many people reviewed it. '
+        '<div class="caveat">Collected %s. Every course shows how many people reviewed it. '
         'Below four reviews we show the numbers, but we don\'t pick a winner.</div>'
         '%s</article>' % (meta["respondents"], meta["reviews"], meta["distinct_oes"],
-                          meta["respondents"], foot))
+                          meta["respondents"], esc(meta.get("collected", "2026")), foot))
 
     for i, c in enumerate(cards["cards"], start=1):
         tip = ('<div class="tip">%s</div>' % esc(c["tip"])) if c["tip"] \
@@ -124,13 +129,15 @@ def main():
         out.append(
             '<article class="card" id="card-%d">'
             '<div class="label"><span class="bk">%s</span>%s</div>'
-            '<div class="oe">%s</div>'
+            '<div class="oe%s">%s</div>'
             '<div class="figure">%s</div>'
             '<div class="qual">%s</div>'
             '<div class="sub">%s</div>'
             '<div class="n">from %d review%s</div>'
             '%s%s</article>'
-            % (i, esc(c["basket"]), esc(c["label"]), esc(c["oe"]), esc(c["stat_value"]), esc(c["stat_label"]),
+            % (i, esc(c["basket"]), esc(c["label"]),
+               " long" if len(c["oe"]) > 45 else (" mid" if len(c["oe"]) > 28 else ""),
+               esc(c["oe"]), esc(c["stat_value"]), esc(c["stat_label"]),
                esc(c["sub"]), c["n"], "" if c["n"] == 1 else "s", tip, foot))
 
     out.append("</body></html>")
