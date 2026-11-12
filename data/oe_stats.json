@@ -13,8 +13,8 @@
     "reviews_oe2": 44,
     "basket_source": "data/basket_map.csv - the registrar's OE-I/OE-II list",
     "needs_confirm_oes": [],
-    "collected": "October and November 2026",
-    "caveat_line": "104 reviews from 63 students, collected in October and November 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity.",
+    "collected": "October 2026",
+    "caveat_line": "104 reviews from 63 students, collected in October 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity.",
     "band_midpoints_note": "avg_ica_midpoint is a sort key only; the published scorability metric is pct_41_plus, a direct count."
   },
   "oes": [

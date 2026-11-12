@@ -13,11 +13,11 @@
     "reviews_oe2": 44,
     "basket_source": "data/basket_map.csv - the registrar's OE-I/OE-II list",
     "needs_confirm_oes": [],
-    "collected": "October and November 2026",
-    "caveat_line": "104 reviews from 63 students, collected in October and November 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity.",
+    "collected": "October 2026",
+    "caveat_line": "104 reviews from 63 students, collected in October 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity.",
     "band_midpoints_note": "avg_ica_midpoint is a sort key only; the published scorability metric is pct_41_plus, a direct count.",
-    "tips_total": 63,
-    "tips_removed": 2,
+    "tips_total": 62,
+    "tips_removed": 3,
     "moderation_note": "Every tip shown has been through a moderation pass: no faculty named, no profanity, course-level advice only. The free-text 'why not' answers are not published at all."
   },
   "oes": [
@@ -922,12 +922,10 @@
       "needs_confirm": false,
       "confirm_note": "",
       "card_eligible": false,
-      "n_tips_public": 1,
-      "dissent_tip": "Attendance is strict, but classes often start 40-50 minutes late.",
-      "display_tip": "Attendance is strict, but classes often start 40-50 minutes late.",
-      "tips": [
-        "Attendance is strict, but classes often start 40-50 minutes late."
-      ]
+      "n_tips_public": 0,
+      "dissent_tip": null,
+      "display_tip": null,
+      "tips": []
     },
     {
       "oe_key": "eng_materials",

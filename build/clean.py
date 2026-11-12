@@ -366,14 +366,11 @@ def main():
         y, m = ym.split("-")
         return "%s %s" % (["January", "February", "March", "April", "May", "June", "July",
                            "August", "September", "October", "November", "December"][int(m) - 1], y)
-    if not months:
-        collected = "2026"
-    elif len(months) == 1:
-        collected = pretty(months[0])
-    elif months[0][:4] == months[-1][:4]:
-        collected = "%s and %s" % (pretty(months[0]).split()[0], pretty(months[-1]))
-    else:
-        collected = "%s to %s" % (pretty(months[0]), pretty(months[-1]))
+    # The month collection opened in, not the full span. Responses kept arriving
+    # into November, so this understates the window; that is a deliberate call,
+    # taken on 12 Nov 2026, to keep one short date on the cards. Still derived,
+    # so the year cannot go stale the way the hardcoded string did.
+    collected = pretty(months[0]) if months else "2026"
     meta = OrderedDict([
         ("generated_from", "Docs/Response Sheet.csv"),
         ("submissions_raw", len(rows)),
