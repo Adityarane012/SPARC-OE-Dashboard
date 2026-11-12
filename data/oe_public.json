@@ -5,10 +5,10 @@
     "submissions_dropped": 3,
     "reviews": 104,
     "respondents": 63,
-    "distinct_oes": 31,
-    "card_eligible_oes": 12,
+    "distinct_oes": 30,
+    "card_eligible_oes": 13,
     "oes_oe1": 17,
-    "oes_oe2": 14,
+    "oes_oe2": 13,
     "reviews_oe1": 60,
     "reviews_oe2": 44,
     "basket_source": "data/basket_map.csv - the registrar's OE-I/OE-II list",
@@ -246,6 +246,41 @@
       ]
     },
     {
+      "oe_key": "ltls",
+      "name": "Leading Through Life Skills",
+      "short": "LTLS",
+      "basket": "OE-II",
+      "dept": "TM",
+      "format": "3h theory",
+      "n": 5,
+      "n_ica": 5,
+      "band_counts": {
+        "Below 35": 0,
+        "35-40": 0,
+        "41-45": 1,
+        "Above 45": 4
+      },
+      "pct_41_plus": 100.0,
+      "pct_above_45": 80.0,
+      "n_again": 5,
+      "yes": 5,
+      "maybe": 0,
+      "no": 0,
+      "pct_yes": 100.0,
+      "subject_type": {},
+      "needs_confirm": false,
+      "confirm_note": "LTLS/ltls and the bare 'Life Skills' spellings all fold in here. The registrar's basket list has them as two courses under different departments, BSH and TM, with different rooms and faculty; the club says that split does not match what students actually sit in and asked for one course, 12 Nov 2026. That ruling overrides the sheet, and it takes the course from N=3 to N=5, over the card gate.",
+      "card_eligible": true,
+      "n_tips_public": 3,
+      "dissent_tip": null,
+      "display_tip": "Light to study and scoring. Class participation is enforced, so put the effort in during class; outside it you barely need to study.",
+      "tips": [
+        "Light to study and scoring. Class participation is enforced, so put the effort in during class; outside it you barely need to study.",
+        "Nothing tops this OE. If you want something light, this is it, and the faculty is lovely.",
+        "The best OE till date. Very easy, entertaining and fun."
+      ]
+    },
+    {
       "oe_key": "gis",
       "name": "Introduction to GIS",
       "short": "GIS",
@@ -461,39 +496,6 @@
       ]
     },
     {
-      "oe_key": "ltls",
-      "name": "Leading Through Life Skills",
-      "short": "LTLS",
-      "basket": "OE-II",
-      "dept": "TM",
-      "format": "3h theory",
-      "n": 3,
-      "n_ica": 3,
-      "band_counts": {
-        "Below 35": 0,
-        "35-40": 0,
-        "41-45": 0,
-        "Above 45": 3
-      },
-      "pct_41_plus": 100.0,
-      "pct_above_45": 100.0,
-      "n_again": 3,
-      "yes": 3,
-      "maybe": 0,
-      "no": 0,
-      "pct_yes": 100.0,
-      "subject_type": {},
-      "needs_confirm": false,
-      "confirm_note": "LTLS/ltls folded in; long form present in data.",
-      "card_eligible": false,
-      "n_tips_public": 1,
-      "dissent_tip": null,
-      "display_tip": "Light to study and scoring. Class participation is enforced, so put the effort in during class; outside it you barely need to study.",
-      "tips": [
-        "Light to study and scoring. Class participation is enforced, so put the effort in during class; outside it you barely need to study."
-      ]
-    },
-    {
       "oe_key": "cem",
       "name": "Creativity and Ethics in Marketing",
       "short": "CEM",
@@ -697,40 +699,6 @@
       "display_tip": "The faculty is relaxed about attendance and attention. You do not need to study too much, M1 and M2 are easy to score, and the 15 mark assignment is basic comprehension.",
       "tips": [
         "The faculty is relaxed about attendance and attention. You do not need to study too much, M1 and M2 are easy to score, and the 15 mark assignment is basic comprehension."
-      ]
-    },
-    {
-      "oe_key": "life_skills",
-      "name": "Life Skills",
-      "short": "Life Sk.",
-      "basket": "OE-II",
-      "dept": "BSH",
-      "format": "3h theory",
-      "n": 2,
-      "n_ica": 2,
-      "band_counts": {
-        "Below 35": 0,
-        "35-40": 0,
-        "41-45": 1,
-        "Above 45": 1
-      },
-      "pct_41_plus": 100.0,
-      "pct_above_45": 50.0,
-      "n_again": 2,
-      "yes": 2,
-      "maybe": 0,
-      "no": 0,
-      "pct_yes": 100.0,
-      "subject_type": {},
-      "needs_confirm": false,
-      "confirm_note": "RESOLVED: the official basket lists 'Life Skills' (OE-II, BSH) and 'Leading Through Life Skills' (OE-II, TM) as two separate courses. They are never merged, so LTLS stays at N=3 and stays out of the cards.",
-      "card_eligible": false,
-      "n_tips_public": 2,
-      "dissent_tip": null,
-      "display_tip": "Nothing tops this OE. If you want something light, this is it, and the faculty is lovely.",
-      "tips": [
-        "Nothing tops this OE. If you want something light, this is it, and the faculty is lovely.",
-        "The best OE till date. Very easy, entertaining and fun."
       ]
     },
     {

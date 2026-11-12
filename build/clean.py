@@ -87,9 +87,12 @@ CANON = OrderedDict([
     ("fimis", dict(name="Financial Institutions, Markets, Instruments and Services", short="FIMIS", needs_confirm=False,
                    note="Expanded from the official OE-II basket; the long form is exactly what FIMIS spells.")),
     ("ltls", dict(name="Leading Through Life Skills", short="LTLS", needs_confirm=False,
-                  note="LTLS/ltls folded in; long form present in data.")),
-    ("life_skills", dict(name="Life Skills", short="Life Sk.", needs_confirm=False,
-                         note="RESOLVED: the official basket lists 'Life Skills' (OE-II, BSH) and 'Leading Through Life Skills' (OE-II, TM) as two separate courses. They are never merged, so LTLS stays at N=3 and stays out of the cards.")),
+                  note="LTLS/ltls and the bare 'Life Skills' spellings all fold in here. "
+                       "The registrar's basket list has them as two courses under different "
+                       "departments, BSH and TM, with different rooms and faculty; the club "
+                       "says that split does not match what students actually sit in and "
+                       "asked for one course, 12 Nov 2026. That ruling overrides the sheet, "
+                       "and it takes the course from N=3 to N=5, over the card gate.")),
     ("3d_printing", dict(name="3D Printing", short="3D Print", needs_confirm=False, note="'3d' folded in.")),
     ("advertising_pr", dict(name="Advertising and Public Relations", short="Adv/PR", needs_confirm=False, note="")),
     ("cem", dict(name="Creativity and Ethics in Marketing", short="CEM", needs_confirm=False,
@@ -149,7 +152,7 @@ NAME_MAP = {
     "fimis": ("fimis", "high"),
     "ltls": ("ltls", "medium"),
     "leading through lifeskills": ("ltls", "high"),
-    "life skills": ("life_skills", "high"),
+    "life skills": ("ltls", "medium"),   # merged into LTLS by the club, 12 Nov 2026
     "3d": ("3d_printing", "medium"),
     "3d printing": ("3d_printing", "high"),
     "advertising and pr": ("advertising_pr", "high"),

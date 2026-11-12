@@ -1,9 +1,9 @@
 {
   "meta": {
     "gate": "N>=4 reviews and a confirmed course name",
-    "eligible_oes": 12,
+    "eligible_oes": 13,
     "eligible_oe1": 9,
-    "eligible_oe2": 3,
+    "eligible_oe2": 4,
     "selection_note": "Cards are picked within a basket, not across both: a student chooses one OE-I and one OE-II, so a cross-basket ranking would answer a question nobody is asking.",
     "phrasing_note": "Cards state counts, not percentages: at N=4 a percentage overclaims.",
     "caveat_line": "104 reviews from 63 students, collected in October 2026. Some courses got only one or two, so the review count sits beside every number. Tips are students' own words, tidied for clarity."
@@ -76,6 +76,19 @@
     },
     {
       "basket": "OE-II",
+      "slot": "easiest_to_score",
+      "label": "Best marks",
+      "oe": "Leading Through Life Skills",
+      "stat_value": "4 of 5",
+      "stat_label": "expect 45+ out of 50",
+      "stat": "4 of 5 expect 45+ out of 50",
+      "sub": "5 of 5 would take it again",
+      "n": 5,
+      "tip": "Light to study and scoring. Class participation is enforced, so put the effort in during class; outside it you barely need to study.",
+      "why": "Largest share of reviewers expecting the top ICA band (Above 45) in this basket."
+    },
+    {
+      "basket": "OE-II",
       "slot": "most_mixed",
       "label": "Mixed reviews",
       "oe": "Elements of Project Management",
@@ -89,11 +102,6 @@
     }
   ],
   "slots_not_filled": [
-    {
-      "basket": "OE-II",
-      "slot": "easiest_to_score",
-      "reason": "best candidate Introduction to Forensic Science does not support the claim"
-    },
     {
       "basket": "OE-II",
       "slot": "hidden_gem",

@@ -5,7 +5,7 @@ and whoever cuts the reel.
 
 - **Dashboard:** https://sparc-oe-dashboard.vercel.app
 - **Join form:** https://tally.so/r/peeeQZ
-- **Cards:** `cards/`, seven PNGs at 1080x1350 (Instagram portrait)
+- **Cards:** `cards/`, eight PNGs at 1080x1350 (Instagram portrait)
 
 Every card already prints both links, so a card works on its own even if nobody
 reads the caption.
@@ -14,18 +14,19 @@ reads the caption.
 
 ## The carousel
 
-Post all seven as one carousel, in filename order. The opener sets up the
+Post all eight as one carousel, in filename order. The opener sets up the
 numbers; each card after it answers one question.
 
 | # | File | What it says |
 |---|---|---|
-| 1 | `00-opener.png` | 104 reviews, 31 courses, 63 students |
+| 1 | `00-opener.png` | 104 reviews, 30 courses, 63 students |
 | 2 | `01-oe1-most-liked.png` | OE-I, Basic Decision Making, 5 of 6 would retake |
 | 3 | `02-oe1-best-marks.png` | OE-I, 5G for Everyone, 3 of 4 expect 45+ |
-| 4 | `03-oe1-worth-a-look.png` | OE-I, AR/VR, 3 of 4 would retake |
+| 4 | `03-oe1-worth-a-look.png` | OE-I, Intro to VR and AR, 3 of 4 would retake |
 | 5 | `04-oe1-mixed-reviews.png` | OE-I, Renewable Energy Sources, 1 of 7 would retake |
 | 6 | `05-oe2-most-liked.png` | OE-II, Financial Derivatives, 7 of 7 would retake |
-| 7 | `06-oe2-mixed-reviews.png` | OE-II, Elements of Project Management, 2 of 9 |
+| 7 | `06-oe2-best-marks.png` | OE-II, Leading Through Life Skills, 4 of 5 expect 45+ |
+| 8 | `07-oe2-mixed-reviews.png` | OE-II, Elements of Project Management, 2 of 9 |
 
 Card 5 is the one people will argue with. That is fine and it is the point: it is
 seven real reviews, not an opinion. Do not drop it to keep the set positive.
@@ -33,12 +34,12 @@ seven real reviews, not an opinion. Do not drop it to keep the set positive.
 **Caption draft**
 
 > We asked 63 students what their Open Electives were actually like. 104 reviews,
-> 31 courses, both baskets.
+> 30 courses, both baskets.
 >
 > No course gets called a winner on fewer than four reviews. Every number shows
 > how many people it came from.
 >
-> Full table, all 31 courses: sparc-oe-dashboard.vercel.app
+> Full table, all 30 courses: sparc-oe-dashboard.vercel.app
 
 ---
 
